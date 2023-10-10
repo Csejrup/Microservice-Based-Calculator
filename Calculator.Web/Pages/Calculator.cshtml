@@ -1,0 +1,33 @@
+﻿@page "/"
+@model Calculator.Web.Pages.CalculatorModel
+@{
+    ViewData["Title"] = "Calculator";
+}
+
+<h1>Calculator</h1>
+
+<div>
+    <form method="post">
+        <input type="number" asp-for="Number1" />
+        <input type="number" asp-for="Number2" />
+        <input type="submit" value="Add" asp-page-handler="Add" />
+        <input type="submit" value="Subtract" asp-page-handler="Subtract" />
+    </form>
+</div>
+
+<h2>Result: @Model.Result</h2>
+
+<h2>History</h2>
+@if (Model.History == null || Model.History.Count == 0)
+{
+    <p>No history available.</p>
+}
+else
+{
+    <ul>
+        @foreach (var item in Model.History)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}

@@ -1,0 +1,19 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.8"
+services:
+  subtraction-service:
+    build:
+      context: "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject\\SubstractionService"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/SubstractionService.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+    image: "substraction-service:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject\\SubstractionService:/app:rw"
+    working_dir: "/app"
