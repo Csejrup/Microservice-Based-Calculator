@@ -7,23 +7,39 @@ services:
       context: .
       dockerfile: AdditionService/Dockerfile
     ports:
-      - "5000:80"
-
+      - "80"
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+    networks:
+      - calcnet
   subtraction-service:
     image: subtraction-service
     build:
       context: .
       dockerfile: SubtractionService/Dockerfile
     ports:
-      - "5001:80"
-
+      - "80"
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+    networks:
+      - calcnet
   history-service:
     image: history-service
     build:
       context: .
       dockerfile: HistoryService/Dockerfile
     ports:
-      - "5002:80"
+      - "80"
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+    networks:
+      - calcnet
   calculator-api:
     image: calculator-api
     build:
@@ -31,6 +47,13 @@ services:
       dockerfile: CalculatorAPI/Dockerfile
     ports:
       - "5003:80"
+    deploy:
+      replicas: 1 
+      restart_policy:
+        condition: on-failure
+    networks:
+      - calcnet
+    
 
   seq:
     image: datalust/seq:latest
@@ -38,8 +61,15 @@ services:
       - ACCEPT_EULA=Y
     ports:
       - "5341:80"
+    deploy:
+      replicas: 1
 
   zipkin:
     image: openzipkin/zipkin
     ports:
       - "9411:9411"
+    deploy:
+      replicas: 1
+networks:
+  calcnet:
+    driver: bridge

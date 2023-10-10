@@ -1,25 +1,29 @@
-var builder = WebApplication.CreateBuilder(args);
+using System;
+using AdditionService;
+using Oakton;
+using Serilog;
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+public abstract class Program
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    public static Task<int> Main(string[] args)
+    {
+        return CreateHostBuilder(args)
+            .RunOaktonCommands(args);
+    }
+    
+    private static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .UseSerilog((hostingContext, loggerConfiguration) => 
+            {
+                loggerConfiguration
+                    .ReadFrom.Configuration(hostingContext.Configuration)
+                    .Enrich.FromLogContext()
+                    .WriteTo.Seq("http://localhost:5341"); 
+            })
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
+
+
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();

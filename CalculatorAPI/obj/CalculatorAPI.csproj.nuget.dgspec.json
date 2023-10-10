@@ -50,6 +50,10 @@
               "target": "Package",
               "version": "[1.6.0, )"
             },
+            "OpenTelemetry.Exporter.Console": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
             "OpenTelemetry.Exporter.Zipkin": {
               "target": "Package",
               "version": "[1.6.0, )"

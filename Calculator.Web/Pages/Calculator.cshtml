@@ -27,7 +27,7 @@ else
     <ul>
         @foreach (var item in Model.History)
         {
-            <li>@item</li>
+            <li>@item.Operation (@item.Timestamp)</li>
         }
     </ul>
 }

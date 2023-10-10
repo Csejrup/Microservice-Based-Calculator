@@ -15,7 +15,12 @@ namespace Calculator.Web.Pages
         [BindProperty]
         public double Number2 { get; set; }
         public double Result { get; set; }
-        public List<string> History { get; set; } = new List<string>();
+        public class HistoryItem
+        {
+            public string Operation { get; set; }
+            public DateTime Timestamp { get; set; }
+        }
+        public List<HistoryItem> History { get; set; } = new List<HistoryItem>();
 
         public async Task<IActionResult> OnPostAddAsync()
         {
@@ -95,7 +100,7 @@ namespace Calculator.Web.Pages
                 var content = await response.Content.ReadAsStringAsync();
                 if (!string.IsNullOrEmpty(content))
                 {
-                    History = JsonConvert.DeserializeObject<List<string>>(content);
+                    History = JsonConvert.DeserializeObject<List<HistoryItem>>(content);
                 }
                 else
                 {

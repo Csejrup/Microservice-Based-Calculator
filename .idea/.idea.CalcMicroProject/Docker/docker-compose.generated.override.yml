@@ -1,19 +1,67 @@
 # This is a generated file. Not intended for manual editing.
 version: "3.8"
 services:
-  subtraction-service:
+  addition-service:
     build:
-      context: "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject\\SubstractionService"
-      dockerfile: "Dockerfile"
+      context: "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject"
+      dockerfile: "AdditionService/Dockerfile"
       target: "base"
     command: []
     entrypoint:
     - "dotnet"
-    - "/app/bin/Debug/net7.0/SubstractionService.dll"
+    - "/app/bin/Debug/net7.0/AdditionService.dll"
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
-    image: "substraction-service:dev"
+    image: "addition-service:dev"
     ports: []
     volumes:
-    - "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject\\SubstractionService:/app:rw"
+    - "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject\\AdditionService:/app:rw"
+    working_dir: "/app"
+  calculator-api:
+    build:
+      context: "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject"
+      dockerfile: "CalculatorAPI/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/CalculatorAPI.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+    image: "calculator-api:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject\\CalculatorAPI:/app:rw"
+    working_dir: "/app"
+  history-service:
+    build:
+      context: "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject"
+      dockerfile: "HistoryService/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/HistoryService.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+    image: "history-service:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject\\HistoryService:/app:rw"
+    working_dir: "/app"
+  subtraction-service:
+    build:
+      context: "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject"
+      dockerfile: "SubtractionService/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net7.0/SubtractionService.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+    image: "subtraction-service:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject\\SubtractionService:/app:rw"
     working_dir: "/app"

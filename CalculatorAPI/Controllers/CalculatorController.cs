@@ -46,6 +46,8 @@ namespace CalculatorAPI.Controllers
         [HttpGet("subtract/{a:double}/{b:double}")]
         public async Task<ActionResult<double>> Subtract(double a, double b)
         {
+            var url = $"http://subtraction-service:<port>/subtract/{a}/{b}";
+            Log.Information($"Calling URL: {url}");
             try
             {
                 Log.Information($"Subtracting {b} from {a}");

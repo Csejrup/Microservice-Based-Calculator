@@ -1,6 +1,7 @@
 ﻿using CalculatorAPI.Services;
 using OpenTelemetry.Trace;
 using Microsoft.OpenApi.Models;
+using OpenTelemetry.Resources;
 
 namespace CalculatorAPI;
 
@@ -15,14 +16,14 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-
-        services.AddOpenTelemetry().WithTracing((builder) => builder
+        services.AddOpenTelemetry().ConfigureResource(otelBuilder => otelBuilder
+            .AddService(serviceName: "Calculator Microservices")).WithTracing((builder) => builder
             .AddAspNetCoreInstrumentation()
+            .AddConsoleExporter()
             .AddHttpClientInstrumentation()
             .AddZipkinExporter(options =>
             {
-                var zipkinHostName = Environment.GetEnvironmentVariable("ZIPKIN_HOSTNAME") ?? "localhost";
-                options.Endpoint = new Uri($"http://{zipkinHostName}:9411/api/v2/spans");
+                options.Endpoint = new Uri("http://127.0.0.1:9411/api/v2/spans");
             }));
 
         services.AddHttpClient<CalculatorService>();
@@ -36,8 +37,7 @@ public class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-
-        app.UseRouting(); 
+        app.UseRouting();
 
         app.UseAuthorization();
 
@@ -48,5 +48,6 @@ public class Startup
         {
             endpoints.MapHealthChecks("/health");
             endpoints.MapControllers();
-        });    }
+        });
+    }
 }

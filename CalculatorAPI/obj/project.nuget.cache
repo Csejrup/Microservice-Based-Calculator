@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0uBHjiLqeIzUayXGUxeVChS+9yi6q70J2oAJLAX5T+GnMkEQojmzwQSaB6Gd6Agpcl1ELwEs/Gl48OMh0nD3Zw==",
+  "dgSpecHash": "fWVJ4prGwsz+VkXKMYmQvSed6zb1tyWZFB6ftAcfD7TdhUY1igHw00VQXX3YbwskHOJDA11lmchigOlR4M99Dg==",
   "success": true,
   "projectFilePath": "C:\\Users\\sejru\\RiderProjects\\CalcMicroProject\\CalculatorAPI\\CalculatorAPI.csproj",
   "expectedPackageFiles": [
@@ -40,6 +40,7 @@
     "C:\\Users\\sejru\\.nuget\\packages\\opentelemetry\\1.6.0\\opentelemetry.1.6.0.nupkg.sha512",
     "C:\\Users\\sejru\\.nuget\\packages\\opentelemetry.api\\1.6.0\\opentelemetry.api.1.6.0.nupkg.sha512",
     "C:\\Users\\sejru\\.nuget\\packages\\opentelemetry.api.providerbuilderextensions\\1.6.0\\opentelemetry.api.providerbuilderextensions.1.6.0.nupkg.sha512",
+    "C:\\Users\\sejru\\.nuget\\packages\\opentelemetry.exporter.console\\1.6.0\\opentelemetry.exporter.console.1.6.0.nupkg.sha512",
     "C:\\Users\\sejru\\.nuget\\packages\\opentelemetry.exporter.zipkin\\1.6.0\\opentelemetry.exporter.zipkin.1.6.0.nupkg.sha512",
     "C:\\Users\\sejru\\.nuget\\packages\\opentelemetry.extensions.hosting\\1.6.0\\opentelemetry.extensions.hosting.1.6.0.nupkg.sha512",
     "C:\\Users\\sejru\\.nuget\\packages\\opentelemetry.instrumentation.aspnetcore\\1.5.1-beta.1\\opentelemetry.instrumentation.aspnetcore.1.5.1-beta.1.nupkg.sha512",

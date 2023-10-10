@@ -662,6 +662,24 @@
           }
         }
       },
+      "OpenTelemetry.Exporter.Console/1.6.0": {
+        "type": "package",
+        "dependencies": {
+          "OpenTelemetry": "1.6.0",
+          "System.Text.Encodings.Web": "4.7.2",
+          "System.Text.Json": "4.7.2"
+        },
+        "compile": {
+          "lib/net6.0/OpenTelemetry.Exporter.Console.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/OpenTelemetry.Exporter.Console.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "OpenTelemetry.Exporter.Zipkin/1.6.0": {
         "type": "package",
         "dependencies": {
@@ -2924,6 +2942,24 @@
         "opentelemetry-icon-color.png",
         "opentelemetry.api.providerbuilderextensions.1.6.0.nupkg.sha512",
         "opentelemetry.api.providerbuilderextensions.nuspec"
+      ]
+    },
+    "OpenTelemetry.Exporter.Console/1.6.0": {
+      "sha512": "M7icDNHjLRllgi6n3xlFEkBSQaPNnG1cwKm74RNUNT56XTmggHACmuiOxpqBXPchjOQNwsUS7We9fEz3ul97zg==",
+      "type": "package",
+      "path": "opentelemetry.exporter.console/1.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net462/OpenTelemetry.Exporter.Console.dll",
+        "lib/net462/OpenTelemetry.Exporter.Console.xml",
+        "lib/net6.0/OpenTelemetry.Exporter.Console.dll",
+        "lib/net6.0/OpenTelemetry.Exporter.Console.xml",
+        "lib/netstandard2.0/OpenTelemetry.Exporter.Console.dll",
+        "lib/netstandard2.0/OpenTelemetry.Exporter.Console.xml",
+        "opentelemetry-icon-color.png",
+        "opentelemetry.exporter.console.1.6.0.nupkg.sha512",
+        "opentelemetry.exporter.console.nuspec"
       ]
     },
     "OpenTelemetry.Exporter.Zipkin/1.6.0": {
@@ -5576,6 +5612,7 @@
       "Microsoft.AspNetCore.OpenApi >= 7.0.5",
       "Oakton >= 6.0.2",
       "OpenTelemetry >= 1.6.0",
+      "OpenTelemetry.Exporter.Console >= 1.6.0",
       "OpenTelemetry.Exporter.Zipkin >= 1.6.0",
       "OpenTelemetry.Extensions.Hosting >= 1.6.0",
       "OpenTelemetry.Instrumentation.AspNetCore >= 1.5.1-beta.1",
@@ -5636,6 +5673,10 @@
             "version": "[6.0.2, )"
           },
           "OpenTelemetry": {
+            "target": "Package",
+            "version": "[1.6.0, )"
+          },
+          "OpenTelemetry.Exporter.Console": {
             "target": "Package",
             "version": "[1.6.0, )"
           },

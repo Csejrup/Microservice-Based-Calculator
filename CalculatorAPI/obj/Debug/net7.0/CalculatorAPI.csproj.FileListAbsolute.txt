@@ -53,3 +53,4 @@ C:\Users\sejru\RiderProjects\CalcMicroProject\CalculatorAPI\obj\Debug\net7.0\ref
 C:\Users\sejru\RiderProjects\CalcMicroProject\CalculatorAPI\obj\Debug\net7.0\CalculatorAPI.pdb
 C:\Users\sejru\RiderProjects\CalcMicroProject\CalculatorAPI\obj\Debug\net7.0\CalculatorAPI.genruntimeconfig.cache
 C:\Users\sejru\RiderProjects\CalcMicroProject\CalculatorAPI\obj\Debug\net7.0\ref\CalculatorAPI.dll
+C:\Users\sejru\RiderProjects\CalcMicroProject\CalculatorAPI\bin\Debug\net7.0\OpenTelemetry.Exporter.Console.dll
